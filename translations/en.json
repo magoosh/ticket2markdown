@@ -1,0 +1,42 @@
+{
+  "app": {
+    "package": "ticket2markdown",
+    "description":  {
+      "value": "Get the raw markdown back from solved/expired tickets",
+      "title": ""
+    },
+
+    "name": {
+      "value": "ticket2markdown",
+      "title": "app name"
+    }
+  },
+
+  "description": {
+    "value": "Get the raw markdown back from solved/expired tickets",
+    "title": "in app instruction"
+  },
+
+  "modal_button": {
+    "value": "Get Raw Text",
+    "title": ""
+  },
+
+ 
+
+  "close_button": {
+    "value": "Close",
+    "title": ""
+  },
+
+  "modal_header": {
+   "value": "Retrieve raw markdown",
+   "title": ""
+  },
+
+  "modal_body": {
+    "value": "Copy and paste the text from the box below into your current ticket",
+    "title": ""
+  }
+
+}
