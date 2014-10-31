@@ -32,9 +32,9 @@
 
       var ticket = this.ticket();
 
-      //var subDomain = "magoosh" //Deploy
+      var subDomain = "magoosh" //Deploy
 
-      var subDomain = "justtinkering" //Local for testing 
+      //var subDomain = "justtinkering" //Local for testing 
 
       var theURL = 'https://' + subDomain + '.zendesk.com/api/v2/tickets/' + ticket.id() + '/comments.json'
 
