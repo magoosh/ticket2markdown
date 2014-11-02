@@ -1,0 +1,6 @@
+
+{{#each comments}}
+<textarea cols="7" rows="10">{{body}}</textarea>
+
+{{/each}}
+

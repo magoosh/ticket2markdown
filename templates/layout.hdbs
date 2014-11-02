@@ -2,11 +2,15 @@
   <span class="logo"/>
   <h3>{{setting "name"}}</h3>
 </header>
-<div>{{t "description"}}</div>
+
 
 
 <section data-main/>
+<div>
+  <a class="btn btn-large theButton">Activate</a>
+</div>
 <footer>
- 
+  <a id="bug_link" href="mailto:{{author.email}}">
+    Report Bugs
+  </a>
 </footer>
-

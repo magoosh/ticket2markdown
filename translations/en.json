@@ -1,42 +1,54 @@
 {
   "app": {
-    "package": "ticket2markdown",
-    "description":  {
-      "value": "Get the raw markdown back from solved/expired tickets",
-      "title": ""
+    "package": "app_name",
+    "description": {
+      "value": "Retrieve the raw markdown of agents from old comments.",
+      "title": "app description"
     },
-
     "name": {
-      "value": "ticket2markdown",
+      "value": "Ticket2Markdown",
       "title": "app name"
     }
   },
 
-  "description": {
-    "value": "Get the raw markdown back from solved/expired tickets",
-    "title": "in app instruction"
+  "loading": {
+    "value": "Ticket2Markdown",
+    "title": "loading placeholder"
   },
 
-  "modal_button": {
-    "value": "Get Raw Text",
-    "title": ""
+  "fetch": {
+    "done": {
+      "value": "Good",
+      "title": "fetch success"
+    },
+    "fail": {
+      "value": "failed to fecth information from the server",
+      "title": "fetch failure"
+    }
   },
 
- 
-
-  "close_button": {
-    "value": "Close",
-    "title": ""
+  "id": {
+    "value": "ID",
+    "title": "user id"
   },
 
-  "modal_header": {
-   "value": "Retrieve raw markdown",
-   "title": ""
+  "email": {
+    "value": "Email",
+    "title": "user email"
   },
 
-  "modal_body": {
-    "value": "Copy and paste the text from the box below into your current ticket",
-    "title": ""
+  "name": {
+    "value": "Name",
+    "title": "user name"
+  },
+
+  "role": {
+    "value": "Role",
+    "title": "user role"
+  },
+
+  "groups": {
+    "value": "Groups",
+    "title": "user groups"
   }
-
 }

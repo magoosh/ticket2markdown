@@ -1,6 +1,26 @@
+#bug_link {
+  font-size: 105%;
+  padding-top: 10px;
+  color: #ff0000;
+}
+
+.total {
+	text-align: right;
+	font-weight: bold;
+	color: #363;
+}
+
+.theButton{
+color:#fff;
+background-color: #27ae60
+}
+
+
 .modal{
   width: 700px;
+
 }
+
 .output{
 
 	width: 650px;
