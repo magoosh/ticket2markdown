@@ -1,7 +1,7 @@
 <!-- modal.hdbs -->
 <div class="modal hide fade my_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h3 class="my_modal_label">The Agent Replies as Markdown</h3>
   </div>
   <div class="modal-body">
