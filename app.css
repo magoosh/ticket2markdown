@@ -1,7 +1,6 @@
-#bug_link {
-  font-size: 105%;
-  padding-top: 10px;
-  color: #ff0000;
+
+header {
+  min-height: 20px;
 }
 
 .modal{
