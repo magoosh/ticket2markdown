@@ -9,12 +9,16 @@
 
   return {
 
+    defaultState: 'button',
+
     events: {
       'app.activated'            : 'init',
       'click .theButton'         : 'getInfo',
 
       'relatedInfoSettings.done' : 'showInfo',
-      'relatedInfoSettings.fail' : 'showError'
+      'relatedInfoSettings.fail' : 'showError',
+
+      'hidden .my_modal'         : 'showButton'
     },
 
     requests: {
@@ -32,7 +36,12 @@
     },
 
     init: function(){
+      // nothing to do
+    },
 
+    // show the widget with button
+    showButton: function(){
+      this.switchTo('button');
     },
 
     getInfo: function(){
