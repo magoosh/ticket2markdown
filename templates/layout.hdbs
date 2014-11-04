@@ -4,11 +4,12 @@
 </header>
 
 
+<section data-main>
+  <div>
+    <a class="btn btn-large btn-primary theButton">View ticket markdown</a>
+  </div>
+</section>
 
-<section data-main/>
-<div>
-  <a class="btn btn-large theButton">Activate</a>
-</div>
 <footer>
   <a id="bug_link" href="mailto:{{author.email}}">
     Report Bugs

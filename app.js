@@ -76,7 +76,6 @@
 
       var passer = {"theText":theData}; //Make the string an object so we can pass it into the modal
 
-      this.switchTo('requester', passer);
       this.switchTo('modal', passer);
       this.$('.my_modal').modal({
         backdrop: true,
