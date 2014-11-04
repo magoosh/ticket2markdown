@@ -10,8 +10,11 @@
   return {
 
     events: {
-      'app.activated'    : 'init',
-      'click .theButton' : 'getInfo'
+      'app.activated'            : 'init',
+      'click .theButton'         : 'getInfo',
+
+      'relatedInfoSettings.done' : 'showInfo',
+      'relatedInfoSettings.fail' : 'showError'
     },
 
     requests: {
@@ -30,6 +33,10 @@
 
     init: function(){
 
+    },
+
+    getInfo: function(){
+      this.ajax('relatedInfoSettings', this.ticket().id());
     },
 
     showInfo: function(data) {
@@ -87,16 +94,6 @@
 
     showError: function() {
       this.switchTo('error');
-    },
-
-    getInfo: function(){
-      services.notify('Fetching the raw markdown...');
-
-      var id      = this.ticket().id();
-      var request = this.ajax('relatedInfoSettings', id);
-
-      request.done(this.showInfo);
-      request.fail(this.showError);
     }
 
   };
