@@ -7,11 +7,20 @@
 
 (function() {
 
+  var RESPONSE_DIVIDER = "\n\n##_____________________________##\n\n";
+
   return {
 
+    defaultState: 'button',
+
     events: {
-      'app.activated'    : 'init',
-      'click .theButton' : 'getInfo'
+      'app.activated'            : 'init',
+      'click .theButton'         : 'getInfo',
+
+      'relatedInfoSettings.done' : 'showInfo',
+      'relatedInfoSettings.fail' : 'showError',
+
+      'hidden .my_modal'         : 'showButton'
     },
 
     requests: {
@@ -29,55 +38,46 @@
     },
 
     init: function(){
+      // nothing to do
+    },
 
+    // show the widget with button
+    showButton: function(){
+      this.switchTo('button');
+    },
+
+    getInfo: function(){
+      this.ajax('relatedInfoSettings', this.ticket().id());
     },
 
     showInfo: function(data) {
-      console.log(data)
 
-      //here I think we can process this here and then just fill up a single textarea
-
-      var theData, object;
-
-      // Cycle through all the comments
-      for (var i = 0; i < data.comments.length; i++) { 
-        object = data.comments[i];
-
+      // Extract bodies of agent comments.
+      var agentBodies = _(data.comments).filter(function(comment){
         /*
-         * Check to make sure the comment comes from a Zendesk agent. There's no
-         * flag in the JSON to check with 100% certainty in each time so for the
-         * moment use two-layer check:
+         * There's no flag in the JSON for whether a comment is by an agent, so
+         * we use the following criteria:
          *
-         * 1. We check the comment.source.rel and if rel == null, then it's very
-         *    likely an agent
-         * 2. But if student replies their comment.source.rel = null so we want
-         *    to check the object.via.source.from.address and if that's blank or
-         *    undefined then it IS an agent. If it has a value it's a student.
+         * 1. If comment.source.rel is null, then it's not the initial comment,
+         *    so it's very likely an agent
+         * 2. If a student replies by email, the comment.source.rel would be 
+         *    null so we check the object.via.source.from.address and if it's
+         *    blank, then it IS an agent. If it has a value it's a student.
          *
          * Good request for Zendesk: Add a flag in the API to specify if a reply
          * is an agent or not.
          */
+        return (comment.via.source.rel == null) && !comment.via.source.from.address;
+      }).map(function(comment){
+        return comment.body;
+      });
 
-        var checkAgent = object.via.source.rel;
-        var checkAgentReply = object.via.source.from.address;
+      // Set up context object so we can pass it into the modal
+      var context = {theText: agentBodies.join(RESPONSE_DIVIDER)};
 
-        if (checkAgent == null) {
-          if (!checkAgentReply) {
-            console.log(i +":" + theData);
-
-            if (theData == undefined){
-              theData = object.body;
-            } else {
-              theData = theData + "\n\n##_____________________________##\n\n" + object.body;
-            }
-          }
-        }
-      }
-
-      var passer = {"theText":theData}; //Make the string an object so we can pass it into the modal
-
-      this.switchTo('requester', passer);
-      this.switchTo('modal', passer);
+      // HACK: this workaround allows us to prepare and display a modal template
+      // with dynamic content
+      this.switchTo('modal', context);
       this.$('.my_modal').modal({
         backdrop: true,
         keyboard: false
@@ -88,16 +88,6 @@
 
     showError: function() {
       this.switchTo('error');
-    },
-
-    getInfo: function(){
-      services.notify('Fetching the raw markdown...');
-
-      var id      = this.ticket().id();
-      var request = this.ajax('relatedInfoSettings', id);
-
-      request.done(this.showInfo);
-      request.fail(this.showError);
     }
 
   };

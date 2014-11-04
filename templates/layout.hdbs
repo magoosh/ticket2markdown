@@ -1,16 +1,10 @@
 <header>
-  <span class="logo"/>
-  <h3>{{setting "name"}}</h3>
+  <small>
+    <strong>{{setting "name"}}</strong> &mdash;
+    Report bugs to 
+    <a href="mailto:{{author.email}}">{{author.name}}</a>
+  </small>
 </header>
 
-
-
-<section data-main/>
-<div>
-  <a class="btn btn-large theButton">Activate</a>
-</div>
-<footer>
-  <a id="bug_link" href="mailto:{{author.email}}">
-    Report Bugs
-  </a>
-</footer>
+<section data-main>
+</section>

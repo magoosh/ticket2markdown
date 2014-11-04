@@ -1,16 +1,15 @@
 <!-- modal.hdbs -->
 <div class="modal hide fade my_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-    <h3 class="my_modal_label">The Agent Replies as Markdown</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 class="my_modal_label">Agent Replies</h3>
   </div>
   <div class="modal-body">
-    <p>Below you can copy and paste the raw formatting</p>
-    <textarea class="output" cols="100" rows="10" placeholder="Pretty markdown goes here">{{theText}}</textarea>
+    <p>These are all the agent comments for this ticket formatted in Markdown:</p>
+    <textarea class="output" cols="100" rows="20" placeholder="Pretty markdown goes here">{{theText}}</textarea>
 
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close Popup</button>
   </div>
 </div>
-
